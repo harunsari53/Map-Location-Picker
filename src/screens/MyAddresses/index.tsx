@@ -40,7 +40,6 @@ export default function MyAddresses() {
             );
           })}
       </MapView>
-      
       <View style={styles.countContainer}>
         <Text style={styles.textColor}>{'Total: ' + markers.length}</Text>
       </View>
