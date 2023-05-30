@@ -48,6 +48,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '100%',
   },
+  addButton:{
+    padding: 20,
+    backgroundColor: 'grey',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    borderWidth: 1,
+  }
 });
 
 export default styles;

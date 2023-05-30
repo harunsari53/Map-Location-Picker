@@ -1,3 +1,5 @@
+import { OSM_API_API_KEY } from "../config";
+
 export const getAddressWithComplete = (
   searched: string,
   onSuccess: (value: any) => void,
@@ -6,7 +8,7 @@ export const getAddressWithComplete = (
 
   request.open(
     'GET',
-    'https://api.openrouteservice.org/geocode/autocomplete?api_key=5b3ce3597851110001cf6248610d1b745e9b4590be73354c49ce4b4b&text=' +
+    `https://api.openrouteservice.org/geocode/autocomplete?api_key=${OSM_API_API_KEY}&text=` +
       searched + '&boundary.country=TR',
   );
 

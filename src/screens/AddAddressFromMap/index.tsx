@@ -1,10 +1,13 @@
-import {View, Text, Image, Pressable, TextInput} from 'react-native';
 import React, {useRef, useState} from 'react';
-import styles from './style';
+import {View, Text, Image, Pressable, TextInput} from 'react-native';
+
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
-import {MarkerPNG} from '../../assets';
-import {getAddressFromPoint} from '../../services/latlngToAddress-service';
 import type {LatLng} from 'react-native-maps';
+import {getAddressFromPoint} from '../../services/latlngToAddress-service';
+
+import {MarkerPNG} from '../../assets';
+
+import styles from './style';
 
 export default function AddAddressFromMap() {
   const [region, setRegion] = useState<
@@ -13,9 +16,9 @@ export default function AddAddressFromMap() {
       longitudeDelta: number;
     }
   >();
+
   const [iconSize, setIconSize] = useState<number>();
   const [inputsVisible, setInputsVisible] = useState<boolean>(false);
-
   const [addressDetail, setAddressDetail] = useState<string>('');
   const [addressTitle, setAddressTitle] = useState<string>('');
   const [housenumber, setHousenumber] = useState<string>('');
@@ -34,7 +37,7 @@ export default function AddAddressFromMap() {
     }
   };
 
-  const onSuccsess = (value: any) => {
+  const onSuccess = (value: any) => {
     setAddressDetail(value?.features?.[0]?.properties?.label ?? '');
     setHousenumber(value?.features?.[0]?.properties?.housenumber ?? '');
     setAddress({
@@ -48,7 +51,7 @@ export default function AddAddressFromMap() {
     getAddressFromPoint(
       region?.longitude ?? 0,
       region?.latitude ?? 0,
-      onSuccsess,
+      onSuccess,
     );
   };
 

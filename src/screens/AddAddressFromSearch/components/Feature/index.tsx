@@ -6,13 +6,17 @@ import {getItem, setItem} from '../../../../mmkv';
 
 export default function Feature({item}: {item: IFeature}) {
   const saveAddressToLocal = () => {
-    const addresses: IFeature[] = getItem('addresses');
+    let addresses: IFeature[] = getItem('addresses');
+
     if (addresses != undefined) {
+      addresses.push(item);
+    } else {
+      addresses = [];
       addresses.push(item);
     }
     setItem('addresses', addresses);
     Alert.alert(
-      '',
+      'Success',
       'You can see it, your added address from My Addresses Screen',
     );
   };
